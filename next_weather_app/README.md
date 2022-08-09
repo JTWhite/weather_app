@@ -2,7 +2,16 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First make sure you have a '.env.local' file with the following variables:
+FIREBASE_API_KEY={firebase_api_key}
+FIREBASE_AUTH_DOMAIN={firebase_auth_domain}
+NEXT_PUBLIC_FIREBASE_PROJECT_ID={firebase_project_id}
+FIREBASE_STORAGE_BUCKET={firebase_storage_bucket}
+FIREBASE_MESSAGING_SENDER_ID={firebase_messaging_sender_id}
+FIREBASE_APP_ID={firebase_app_id}
+FIREBASE_MEASUREMENT_ID={firebase_measurement_id}
+
+Then, run the development server:
 
 ```bash
 npm run dev
