@@ -1,4 +1,3 @@
-import React from 'react'
 import { NextPage } from "next"
 import { firestore } from '../../firebase/clientApp'
 import { collection, QueryDocumentSnapshot, DocumentData, query, where, limit, getDocs } from "@firebase/firestore";
@@ -17,7 +16,7 @@ const Home: NextPage = () => {
     // construct a query to get up to 10 undone todos 
     const todosQuery = query(todosCollection, where('done', '==', false), limit(10));
     // get the todos
-    const querySnapshot = await getDocs(todosQuery);
+    const querySnapshot = await getDocs(todosCollection);
 
     // map through todos adding them to an array
     const result: QueryDocumentSnapshot<DocumentData>[] = [];
@@ -57,9 +56,9 @@ const Home: NextPage = () => {
               ) : (
                 todos.map((todo) => {
                   return (
-                    <div>
-                      <h2>{todo.data.arguments['title']}</h2>
-                      <p>{todo.data.arguments['description']}</p>
+                    <div key={todo.id}>
+                      <h2>{todo.data().title}</h2>
+                      <p>{todo.data().description}</p>
                       <div>
                         <button type="button">Mark as done</button>
                         <button type="button">Delete</button>
